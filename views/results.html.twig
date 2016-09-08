@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <title>CD Store</title>
+</head>
+<body>
+    <div class='container'>
+        {% if search_items is not empty %}
+            <ul>
+            {% for item in search_items %}
+                <li>{{ cd.getArtist }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>

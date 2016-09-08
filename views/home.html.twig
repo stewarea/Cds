@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <title>CD Store</title>
+</head>
+<body>
+    <div class='container'>
+        <form action="/search" style="position: fixed">
+            <div class='form-group'>
+                <input id='search' name='search' class='form-control' type='text'>
+            </div>
+            <button type='submit' class='btn btn-default'>Search</button>
+        </form>
+
+        <h1 style="font-family:monospace; margin-top: 15%">Enter a CD</h1>
+        <form action='/new_cd' method="post">
+            <div class='form-group'>
+                <label for='artist'>Enter an Artist:</label>
+                <input id='artist' name='artist' class='form-control' type='text'>
+            </div>
+            <button type='submit' class='btn btn-default'>Post</button>
+        </form>
+        {% if new_item is not empty %}
+            <ul>
+            {% for cd in new_item %}
+                <li>{{ cd.getArtist }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
