@@ -8,7 +8,8 @@
         {% if search_items is not empty %}
             <ul>
             {% for item in search_items %}
-                <li>{{ cd.getArtist }}</li>
+                <li>{{ item.getArtist }}<br>
+                {{ item.getAlbum }}</li>
             {% endfor %}
             </ul>
         {% endif %}

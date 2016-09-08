@@ -18,7 +18,7 @@
     });
 
     $app->post("/new_cd", function() use ($app) {
-        $cd = new Cd($_POST['artist']);
+        $cd = new Cd($_POST['artist'], $_POST['album']);
         array_push($_SESSION['cd_list'], $cd);
         return $app['twig']->render('home.html.twig', array('new_item'=>$_SESSION['cd_list']));
     });
@@ -26,13 +26,11 @@
     $app->get("/search", function() use ($app) {
         $search_array = array();
         foreach ($_SESSION['cd_list'] as $cd) {
-            
-            // if ($cd->findMatch($_GET['search'], $_SESSION['cd_list'])) {
-            //     array_push($search_array, $cd);
-            };
+            if ($cd->findMatch($_GET['search'])) {
+                array_push($search_array, $cd);
+            }
         }
-            // return $app['twig']->render('results.html.twig', array('search_items'=>$search_array));
-            return var_dump($search_array);
+        return $app['twig']->render('results.html.twig', array('search_items'=>$search_array));
     });
 
 

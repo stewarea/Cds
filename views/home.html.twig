@@ -19,12 +19,17 @@
                 <label for='artist'>Enter an Artist:</label>
                 <input id='artist' name='artist' class='form-control' type='text'>
             </div>
+            <div class='form-group'>
+                <label for='album'>Enter an Album:</label>
+                <input id='album' name='album' class='form-control' type='text'>
+            </div>
             <button type='submit' class='btn btn-default'>Post</button>
         </form>
         {% if new_item is not empty %}
             <ul>
             {% for cd in new_item %}
                 <li>{{ cd.getArtist }}</li>
+                <li>{{ cd.getAlbum }}</li>
             {% endfor %}
             </ul>
         {% endif %}

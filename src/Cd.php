@@ -1,11 +1,13 @@
-<<?php
+<?php
 class Cd
 {
     private $artist;
+    private $album;
 
-    function __construct($cd_artist)
+    function __construct($cd_artist, $cd_album)
     {
         $this->artist = $cd_artist;
+        $this->album = $cd_album;
     }
 
     function getArtist()
@@ -13,9 +15,9 @@ class Cd
         return $this->artist;
     }
 
-    function setArtist($newArtist)
+    function getAlbum()
     {
-        $this->artist = $newArtist;
+        return $this->album;
     }
 
     static function getAll()
@@ -23,8 +25,11 @@ class Cd
         return $_SESSION['cd_list'];
     }
 
-    function findMatch($thisCd, $cdList) {
-        
+    function findMatch($search)
+    {
+        if(strstr($this->artist, $search)) {
+            return true;
+        }
     }
 }
 ?>
